@@ -17,12 +17,12 @@
 
 [class*="col"] {
   float: left;
-  padding: 20px;
+  /*padding: 20px;*/
 }
 
 .row::after {
   content: "";
   clear: both;
   display: table;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
