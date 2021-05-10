@@ -15,8 +15,8 @@
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #303030;">
         <div class="container-fluid">
-          <a class="navbar-brand" href="index.html">
-            <img class="scp-logo" src="./images/logo_dark.png" alt="SCP Logo">
+          <a class="navbar-brand" href="index.php">
+            <img class="scp-logo" src="images/logo-dark.png" alt="SCP Logo">
             SCP Foundation
           </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,10 +25,10 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                <a class="nav-link active" aria-current="page" href="index.php">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="scp_catalogue.html">SCP Catalogue</a>
+                <a class="nav-link" href="catalogue.php">SCP Catalogue</a>
               </li>
             </ul>
             <form class="d-flex">
@@ -43,11 +43,11 @@
     <!-- Content -->
     <div class="container d-flex align-items-center justify-content-center text-center h-100">
       <div class="scp-welcome-message">
-        <img src="./images/logo_light.png" style="max-width: 150px;" alt="SCP Logo">
+        <img src="images/logo-light.png" style="max-width: 150px;" alt="SCP Logo">
         <h1>⚠️<strong>Warning</strong>⚠️</h1>
         <h3 class="mb-4"><strong>Authorised personnel only!</strong></h3>
         <h4 class="mb-4">If you are not authorised to view this page, please leave immediately or you will be executed without hesitation.</h4>
-        <a class="btn btn-dark btn-lg btn-primary m-2" href="scp_catalogue.html" role="button" rel="nofollow">Proceed</a>
+        <a class="btn btn-dark btn-lg btn-primary m-2" href="catalogue.php" role="button" rel="nofollow">Proceed</a>
       </div>
     </div>
     <!-- Footer -->
