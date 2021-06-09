@@ -106,7 +106,7 @@
             <button class="btn btn-primary" onclick="Speak()"><img src="images/logo-speech-light.png" style="height: 30px; width: auto; padding-right: 8px;">Speak</button>
             <div style="display: inline-block; padding-left: 5px;">
               <a href="<?php echo $update; ?>"><img title="Edit Subject" style="width: 24px;" src="images/edit.png"/></a>
-              <a href="<?php echo $delete; ?>"><img title="Delete Subject" style="width: 24px;" src="images.delete.png"/></a>
+              <a href="<?php echo $delete; ?>"><img title="Delete Subject" style="width: 24px;" src="images/delete.png"/></a>
             </div>
           </div>
           <br><br>
