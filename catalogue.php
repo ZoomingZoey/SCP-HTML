@@ -1,9 +1,9 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <?php 
+    <?php
+      include "connection.php"; // Include the PHP file that connects to the database.
       $numOfCols = 6; // The maximum number of cards/columns to show on each row.
-      $subjects = json_decode(file_get_contents("json/scps.json")); // Get all the subjects from the JSON file.
     ?>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -36,6 +36,11 @@
               <a class="nav-link active" href="catalogue.php">SCP Catalogue</a>
             </li>
           </ul>
+          <div>
+            <div class="container" style="padding: 5px;">
+              <a class="nav-link btn btn-primary" href="create.php">Create new SCP record</a>
+            </div>
+          </div>
           <form class="d-flex">
             <input class="form-control me-2" type="text" name="Username" placeholder="Username">
             <input class="form-control me-2" type="password" name="Password" placeholder="Password">
@@ -44,6 +49,7 @@
         </div>
       </div>
     </nav>
+    
   </header>
   <!-- Content -->
   <div class="container-fluid" style=" padding-top: 50px;">
@@ -54,17 +60,25 @@
     </div>
     <?php
     $count = 0;
-    foreach ($subjects as $subject) {
+    foreach ($table as $subject) {
+      // Create Update and Delete URL variables
+      $id = $subject['id'];
+      $update = 'update.php?update=' . $id;
+      $delete = 'connection.php?delete=' . $id;
       if ($count === 0) echo '<div class="row">';
       echo <<<EOT
       <div class="col d-flex justify-content-center" style="padding-bottom: 25px;">
         <div class="card" style="width: 18rem;">
-          <img src="{$subject->subject_image}" class="card-img-top" alt="{$subject->item}">
+          <img src="{$subject['subject_image']}" class="card-img-top" alt="{$subject['item']}">
           <div class="card-body">
-            <h5 class="card-title"><strong>{$subject->item}</strong></h5>
-            <h6 class="card-subtitle mb-2"><strong>Object Class: </strong>{$subject->object_class}</h6>
-            <p class="card-text">{$subject->description}</p>
-            <a href="subject.php?subject={$subject->item}" class="btn btn-primary">Read more</a>
+            <div style="float: right;">
+              <a href="{$update}"><img title="Edit Subject" style="width: 24px;" src="images/edit.png"/></a>
+              <a href="{$delete}"><img title="Delete Subject" style="width: 24px;" src="images/delete.png"/></a>
+            </div>
+            <h5 class="card-title"><strong>{$subject['item']}</strong></h5>
+            <h6 class="card-subtitle mb-2"><strong>Object Class: </strong>{$subject['object_class']}</h6>
+            <p class="card-text">{$subject['description']}</p>
+            <a href="subject.php?subject={$subject['item']}" class="btn btn-primary">Read more</a>
           </div>
         </div>
       </div>
