@@ -25,7 +25,6 @@
       // Create Update and Delete URL variables
       $update = 'update.php?update=' . $currentSubjectId;
       $delete = 'connection.php?delete=' . $currentSubjectId;
-      echo $update;
     }
       
     ?>
