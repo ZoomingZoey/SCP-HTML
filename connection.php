@@ -12,12 +12,12 @@
         $item = $_POST['item'];
         $object_class = $_POST['object_class'];
         $subject_image = $_POST['subject_image'];
-        $containment = $_POST['containment'];
-        $description = $_POST['description'];
+        // for the last two fields we must allow escape characters:
+        $containment = $mysqli->real_escape_string($_POST['containment']);
+        $description = $mysqli->real_escape_string($_POST['description']);
         
         // create the insert MySQL command:
-        $insert = "INSERT INTO scp(item, object_class, subject_image, containment, description)
-        values('$item', '$object_class', '$subject_image', '$containment', '$description');";
+        $insert = "INSERT INTO scp (item, object_class, subject_image, containment, description) VALUES ('{$item}', '{$object_class}', '{$subject_image}', '{$containment}', '{$description}')";
         
         // run the insert MySQL command and output a message if it command succeeds or fails:
         if ($mysqli->query($insert) === TRUE) {
@@ -33,7 +33,7 @@
         else {
             echo "
                 <h1>Error submitting data.</h1>
-                <p>{$mysqli->error()}</p>
+                <p>($mysqli->error())</p>
                 <p><a href='catalogue.php'>Click here to go to the SCP catalogue page</a></p>
             ";
         }
@@ -46,14 +46,15 @@
         $item = $_POST['item'];
         $object_class = $_POST['object_class'];
         $subject_image = $_POST['subject_image'];
-        $containment = $_POST['containment'];
-        $description = $_POST['description'];
+        // for the last two fields we must allow escape characters:
+        $containment = $mysqli->real_escape_string($_POST['containment']);
+        $description = $mysqli->real_escape_string($_POST['description']);
         
         // create the update MySQL command:
-        $update_cmd = "UPDATE scp SET item='$item', object_class='$object_class', subject_image='$subject_image',
-        containment='$containment', description='$description' WHERE id = $id";
+        $update_cmd = "UPDATE scp SET item='{$item}', object_class='{$object_class}', subject_image='{$subject_image}',
+        containment='{$containment}', description='{$description}' WHERE id = $id";
         
-        // run the update MySQL command and output a message if it command succeeds or fails:
+        // run the update MySQL command and output a message if the command succeeds or fails:
         if ($mysqli->query($update_cmd) === TRUE) {
             $result = $mysqli->query("SELECT * FROM scp WHERE id = $id");
             $record = $result->fetch_assoc();
